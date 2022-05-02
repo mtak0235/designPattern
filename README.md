@@ -29,6 +29,7 @@
 [8. 낭비를 없애볼까요](https://gitlab.com/k3144/designpattern/-/blob/main/ch08/README.md)
 
   - Proxy, Flyweight
+  
 [9. 호환](https://gitlab.com/k3144/designpattern/-/blob/main/ch09/README.md)
 
   - Adapter
