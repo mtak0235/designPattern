@@ -1,6 +1,6 @@
 # 여기서 학습하는 내용들...
 
-1. 디자인 패턴이 무엇인가요? 리펙토링은?
+[1. 디자인 패턴이 무엇인가요? 리펙토링은?](https://gitlab.com/k3144/designpattern/-/blob/main/ch01/README.md)
 
 2. 객체를 생성하는 패턴들
 
