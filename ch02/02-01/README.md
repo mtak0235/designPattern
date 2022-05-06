@@ -20,4 +20,4 @@
 
 ## 여러가지 팩토리
 
-[!fatorymethod]("./img/fatorymethod.JPG")
+![fatorymethod](./img/fatorymethod.JPG)
