@@ -39,3 +39,16 @@
   - Command
 
 
+## Reference
+
+ - GoF의 디자인 패턴 (Addison Wesley)
+
+ - 헤드퍼스트 디자인 패턴 (한빛미디어) 
+ 
+ - 자바로 배우는 리펙토링 입문 (길벗)
+
+ - Refactoring 2Edition (한빛미디어)
+
+ - 외 다수...
+ 
+
