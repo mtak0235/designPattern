@@ -169,8 +169,6 @@ public class CoffeeTest {
 
 ## 중요한 결론 
 
-## 5. 중요한 결론 (consequence)
-
 - 단순한 상속보다 설계의 융통성이 많아짐
 
 - Decorator의 조합을 통해 새로운 서비스를 지속적으로 추가할 수 있음
