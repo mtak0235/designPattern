@@ -162,6 +162,7 @@ public class CoffeeTest {
 
 - 실제 I/O 가 일어나는 클래스와 이를 감싸서 보조적인 기능을 제공하는 클래스 (보조 클래스, 이차 클래스, Wrapper 클래스)가 있음
 
-- 예 )   BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+- 예 )   
+		  BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-         BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
+          BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
