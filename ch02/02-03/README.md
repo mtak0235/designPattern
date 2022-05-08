@@ -58,6 +58,8 @@ public class SingletonTest {
 
 - thread-safe를 보장하는 코드
 
+### 해결 방법
+
 1. 동기화 방식
 
 ```
@@ -111,6 +113,3 @@ public class Singleton {
 => 이미 생성된 경우는 메서드 Locking이 발생하지 않음 
 
 
-
-
-- 
