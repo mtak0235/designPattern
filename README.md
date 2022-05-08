@@ -18,23 +18,27 @@
 
   - State, Observer
 
-[6. 복잡한것을 단순하게](https://gitlab.com/k3144/designpattern/-/blob/main/ch06/README.md)
+[6. 하위 클래스에 위임하기](https://gitlab.com/k3144/designpattern/-/blob/main/ch06/README.md)
+
+  - Template Method
+
+[7. 복잡한것을 단순하게](https://gitlab.com/k3144/designpattern/-/blob/main/ch07/README.md)
 
   - Facade, Memento 
 
-[7. 구조안을 돌아다니는 패턴들](https://gitlab.com/k3144/designpattern/-/blob/main/ch07/README.md)
+[8. 구조안을 돌아다니는 패턴들](https://gitlab.com/k3144/designpattern/-/blob/main/ch08/README.md)
 
   - Iterator, Visitor
 
-[8. 접근 제어하는 방법](https://gitlab.com/k3144/designpattern/-/blob/main/ch08/README.md)
+[9. 접근 제어하는 방법](https://gitlab.com/k3144/designpattern/-/blob/main/ch09/README.md)
 
   - Proxy
   
-[9. 호환](https://gitlab.com/k3144/designpattern/-/blob/main/ch09/README.md)
+[10. 호환](https://gitlab.com/k3144/designpattern/-/blob/main/ch10/README.md)
 
   - Adapter
 
-[10. 프로토콜을 객체로](https://gitlab.com/k3144/designpattern/-/blob/main/ch10/README.md)
+[11. 프로토콜을 객체로](https://gitlab.com/k3144/designpattern/-/blob/main/ch11/README.md)
 
   - Command
 
