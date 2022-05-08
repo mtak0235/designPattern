@@ -26,9 +26,9 @@
 
   - Iterator, Visitor
 
-[8. 낭비를 없애볼까요](https://gitlab.com/k3144/designpattern/-/blob/main/ch08/README.md)
+[8. 접근 제어하는 방법](https://gitlab.com/k3144/designpattern/-/blob/main/ch08/README.md)
 
-  - Proxy, Flyweight
+  - Proxy
   
 [9. 호환](https://gitlab.com/k3144/designpattern/-/blob/main/ch09/README.md)
 
