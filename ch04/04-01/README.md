@@ -167,11 +167,11 @@ public class CoffeeTest {
 
           BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
 
-## 중요한 결론 
-
-- 단순한 상속보다 설계의 융통성이 많아짐
+## 언제 사용하는 것이 좋은가?
 
 - Decorator의 조합을 통해 새로운 서비스를 지속적으로 추가할 수 있음
+
+- 단순한 상속보다 설계의 융통성이 많아짐
 
 - 필요없는 경우 Decorator를 삭제할 수 있음
 
