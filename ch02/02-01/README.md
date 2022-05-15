@@ -6,7 +6,7 @@
   - 객체 생성에 new 를 사용하여 구체 클래스 인스턴스를 생성하게 되면 
   대상의 인스턴스가 변경되었을 때 프로그램이 수정되어야 함
 
-  예) Employee fullTimeEmployee = new FullTimeEmployee();
+  예) Car car = new Car("Sonata");  // 차종에 따라 여러 차가 생성될 수 있음
 
   - 여러 인스턴스가 다양하게 생성될 수 있는 상황에서는 팩토리 메서드를 사용한다.
 
