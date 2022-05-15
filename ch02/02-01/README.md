@@ -69,16 +69,144 @@ public class CarTest {
 	}
 }
 ```
+=> 분류코드를 사용함. 생성하는 인스턴스가 증가면 코드가 점점 길어짐
 
-## 간단한 팩토리
+## 간단한 팩토리로 리펙토링 하기  
 
+1. Car를 상위 클래스로 만들고 각각의 제품을 하위 클래스로 만든다.
 
+2. 팩토리에서 인스턴스를 생성한다.
 
+Car.java
+```
+public abstract class Car {
+		
+	String productName;
+	
+	public Car(String productName) {
+		this.productName = productName;
+	}
+		
+	public String toString() {
+		return productName;
+	}
+}
+```
 
-## 여러가지 팩토리
+Sonata.java
+```
+public class Sonata extends Car{
+
+	public Sonata(String productName) {
+		super(productName);
+	}
+
+}
+```
+Grandeur.java
+```
+public class Grandeur extends Car{
+	
+	public Grandeur(String productName) {
+		super(productName);
+	}
+}
+```
+Genesis.java
+```
+public class Genesis extends Car{
+		
+	public Genesis(String productName) {
+		super(productName);
+	}
+}
+```
+CarFactory.java
+```
+public class CarFactory {
+
+	public Car createCar(String name) {
+		
+		Car car = null;
+		
+		if( name.equalsIgnoreCase("sonata")) {
+			car = new Sonata(name);
+		}
+		else if( name.equalsIgnoreCase("grandeur")) {
+			car = new Sonata(name);
+		}
+		else if( name.equalsIgnoreCase("genesis")) {
+			car = new Sonata(name);
+		}
+		
+		return car;
+	}
+}
+```
+
+## 팩토리를 추상화 하기
+
+1. 팩토리를 추상화 하여 여러 팩토리가 상속받고 다양한 제품군을 만들 수 있다.
+
+2. 팩토리에서 제품을 생성하는 과정이 다양한 공정과정을 거치게 되면 템플릿 메서드 방식을 사용할 수 있다.
+
+CarFactory.java
+```
+public abstract class CarFactory {
+
+	final public Car manufaturingCar(String name) {
+		
+		Car car;
+		prepareOthers();
+		car = createCar(name);
+		washCar();
+		
+		return car;
+	}
+		
+	public void prepareOthers() {
+		System.out.println("prepare others");
+	}
+	
+	public void washCar() {
+		System.out.println("wash car");
+	}
+	
+	public abstract Car createCar(String name);
+}
+```
+HyundaiFactory.java
+```
+public class HyundaiFactory extends CarFactory{
+	
+	@Override
+	public Car createCar(String name) {
+		Car car = null;
+
+		if( name.equalsIgnoreCase("sonata")) {
+			car = new Sonata(name);
+		}
+		else if( name.equalsIgnoreCase("grandeur")) {
+			car = new Sonata(name);
+		}
+		else if( name.equalsIgnoreCase("genesis")) {
+			car = new Sonata(name);
+		}
+		System.out.println(car + " created");
+		
+		return car;
+	}
+
+}
+```
 
 
 ![fatorymethod](./img/fatorymethod.JPG)
 
 - 상위 클래스에서 추상 팩토리 메서드를 제공하고 하위 클래스에서 이를 구현하여 구체 클래스를 생성한다. 따라서 클라이언트가 
+
+
+
+
+
 사용하게 되는 상위 메서드는 추상화되어 있고, 실제 객체가 생성되는 하위 클래스와 분리되어 유연성이 제공된다.
