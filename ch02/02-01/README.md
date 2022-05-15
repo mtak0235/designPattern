@@ -10,8 +10,65 @@
 
   - 여러 인스턴스가 다양하게 생성될 수 있는 상황에서는 팩토리 메서드를 사용한다.
 
-## 이전의 코드
+  - 생성될 수 있는 여러 객체를 추상화 하고, 팩토리에서는 추상 클래스를 활용하고 생성하는 메서드를 제공한다. 클라이언트는 실제 인스턴스와 상관없이, 팩토리가 제공해주는 생성 메서드 (에를 들얼 createCar())를 사용하면 된다. 구체적인 클래스에 종속되지 않음
 
+## 이전의 코드 ( 구체적인 클래스 기반의 코드 )
+
+Car.java
+```
+package factory.before;
+
+public  class Car {
+
+	public static final String SONATA = "Sonata";
+	public static final String GRANDEUR = "Grandeur";
+	public static final String GENESIS = "Genesis";
+	
+	String productName;
+	
+	public Car(String productName) {
+		this.productName = productName;
+	}
+	
+	public String toString() {
+		return productName;
+	}
+}
+```
+
+CarTest.java (클라이언트 코드)
+```
+public class CarTest {
+	
+	public static void main(String[] args) {
+		
+		CarTest test = new CarTest();
+		Car car = test.produceCar("Sonata");
+			
+		System.out.println(car);
+	}
+	
+	public Car produceCar(String name) {
+	
+		Car car = null;
+		
+		if( name.equalsIgnoreCase(Car.SONATA)) {
+			car = new Car(Car.SONATA);
+		}
+		else if( name.equalsIgnoreCase(Car.GRANDEUR)) {
+			car = new Car(Car.GRANDEUR);
+		}
+		else if( name.equalsIgnoreCase(Car.GENESIS)) {
+			car = new Car(Car.GENESIS);
+		}
+		else {
+			car = new Car("noname");
+		}
+		
+		return car;
+	}
+}
+```
 
 ## 간단한 팩토리
 
