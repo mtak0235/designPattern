@@ -13,3 +13,14 @@
 - 다양한 세트가 존재하고 이를 대체할 수 있도록 구현한 패턴
 
 ![abstractfactory.png](./img/abstractfactory.png)
+
+## class diagram
+
+![afclassdiagram.png](./img/afclassdiagram.png)
+
+- 대체로 ConcreteFactory 인스턴스는 실행할 때 만들어짐
+
+- ConcreteFactory는 각 제품 세트를 생성함
+
+- Client는 AbstractFactory와 AbstractProduct 클래스에 선언된 인터페이스를 사용한다.
+
