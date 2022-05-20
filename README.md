@@ -24,7 +24,7 @@
 
 [6. 복잡한것을 단순하게](https://gitlab.com/k3144/designpattern/-/blob/main/ch6/README.md)
 
-  - Facade, Memento 
+  - Facade, Mediator 
 
 [7. 구조안을 돌아다니는 패턴들](https://gitlab.com/k3144/designpattern/-/blob/main/ch7/README.md)
 
