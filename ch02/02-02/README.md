@@ -24,3 +24,7 @@
 
 - Client는 AbstractFactory와 AbstractProduct 클래스에 선언된 인터페이스를 사용한다.
 
+## DB의 설정이 바뀔 때마다 DAO 인스턴스가 변경되는 예제
+
+![dao.png](./img/dao.png)
+
