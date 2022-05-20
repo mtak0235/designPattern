@@ -21,3 +21,109 @@
 ## Class diagram
 
 ![observer](./img/observer.png)
+
+- Subject와 Observer 사이에는 추상적인 결합만이 존재한다. 
+
+- broadcasting 방식
+
+## Random으로 숫자가 만들어지면 그 숫자를 쓰거나 개수만큼 *로 나타낸다.
+
+- 숫자(Subject)를 모니터링 하는 두개의 Observer가 존재함
+
+NumberGenerator.java
+```
+package observer.push;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public abstract class NumberGenerator {
+    private List<Observer> observers = new ArrayList<Observer>();        
+    public void addObserver(Observer observer) {    
+        observers.add(observer);
+    }
+    public void deleteObserver(Observer observer) { 
+        observers.remove(observer);
+    }
+    public void notifyObservers() {               
+        Iterator<Observer> it = observers.iterator();
+        while (it.hasNext()) {
+            Observer o = (Observer)it.next();
+            o.update(this);
+        }
+    }
+    public abstract int getNumber();              
+    public abstract void execute();               
+}
+```
+RandomNumberGenerator.java
+```
+public class RandomNumberGenerator extends NumberGenerator {
+    private Random random = new Random();   
+    private int number;                     
+    public int getNumber() {                
+        return number;
+    }
+    public void execute() {
+        for (int i = 0; i < 20; i++) {
+            number = random.nextInt(50);
+            notifyObservers();
+        }
+    }
+}
+```
+
+Observer.java
+```
+public interface Observer {
+    public abstract void update(NumberGenerator generator);
+}
+```
+DigitObserver.java
+```
+public class DigitObserver implements Observer {
+    public void update(NumberGenerator generator) {
+        System.out.println("DigitObserver:" + generator.getNumber());
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+        }
+    }
+}
+```
+
+GraphObserver.java
+```
+public class GraphObserver implements Observer {
+    public void update(NumberGenerator generator) {
+        System.out.print("GraphObserver:");
+        int count = generator.getNumber();
+        for (int i = 0; i < count; i++) {
+            System.out.print("*");
+        }
+        System.out.println("");
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+        }
+    }
+}
+```
+
+Main.java
+```
+public class Main {
+    public static void main(String[] args) {
+        NumberGenerator generator = new RandomNumberGenerator();
+        Observer observer1 = new DigitObserver();
+        Observer observer2 = new GraphObserver();
+        generator.addObserver(observer1);
+        generator.addObserver(observer2);
+        generator.execute();
+    }
+}
+```
+
+
+
