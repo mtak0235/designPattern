@@ -10,14 +10,20 @@
   
   - [Singleton - 단 하나의 인스턴스만을 생성하기](https://gitlab.com/k3144/designpattern/-/blob/main/ch02/02-03/README.md)
 
-[3. 기능과 구현을 분리하여 좀더 유연하게 만들기](https://gitlab.com/k3144/designpattern/-/blob/main/ch03/README.md)
+[3. 알고리즘 뼈대나 기능과 구현을 분리하여 좀더 유연하게 만들기](https://gitlab.com/k3144/designpattern/-/blob/main/ch03/README.md)
 
-  - Strategy, Bridge
-
-[4. 동일시하기와 위임하기](https://gitlab.com/k3144/designpattern/-/blob/main/ch04/README.md)
+  - Strategy
   
-  - Decorator, Composite, Template Method
+  - Bridge
 
+  - Template Method
+
+[4. 동일시하기](https://gitlab.com/k3144/designpattern/-/blob/main/ch04/README.md)
+  
+  - [Decorator - 다양한 기능들을 유연하게 추가하기 (Object와 Decorator를 동일시)](https://gitlab.com/k3144/designpattern/-/blob/main/ch04/04-01/README.md)
+  
+  - [Composite - 단순 객체와 이를 포함하는 복합 객체를 동일시](https://gitlab.com/k3144/designpattern/-/blob/main/ch04/04-02/README.md)
+  
 [5. 상태를 클래스로 표현하여 유연하게 만들기](https://gitlab.com/k3144/designpattern/-/blob/main/ch05/README.md)
 
   - [State - 상태의 여러 값에 기반하여 클래스 전반의 기능들이 결정 될 때](https://gitlab.com/k3144/designpattern/-/blob/main/ch05/05-01/README.md)
