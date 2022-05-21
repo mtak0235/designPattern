@@ -38,21 +38,21 @@
 
 [7. 구조안을 돌아다니는 패턴들](https://gitlab.com/k3144/designpattern/-/blob/main/ch07/README.md)
 
-  - Iterator
+  - [Iterator](https://gitlab.com/k3144/designpattern/-/blob/main/ch07/07-01/README.md) 
 
-  - Visitor
+  - [Visitor](https://gitlab.com/k3144/designpattern/-/blob/main/ch07/07-02/README.md)  
 
 [8. 접근 제어하는 방법](https://gitlab.com/k3144/designpattern/-/blob/main/ch08/README.md)
 
-  - Proxy
+  - [Proxy](https://gitlab.com/k3144/designpattern/-/blob/main/ch08/08-01/README.md)
   
 [9. 호환](https://gitlab.com/k3144/designpattern/-/blob/main/ch09/README.md)
 
-  - Adapter
+  - [Adapter](https://gitlab.com/k3144/designpattern/-/blob/main/ch09/09-01/README.md) 
 
 [10. 프로토콜을 객체로](https://gitlab.com/k3144/designpattern/-/blob/main/ch10/README.md)
 
-  - Command
+  - [Command](https://gitlab.com/k3144/designpattern/-/blob/main/ch10/10-01/README.md) 
 
 
 ## Reference
