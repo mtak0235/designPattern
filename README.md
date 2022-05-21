@@ -30,19 +30,23 @@
   
   - [Observer - 하나의 객체(Subject)에 의존성을 가진 여러 객체(Observer)들에게 변화를 통지해야 할 때](https://gitlab.com/k3144/designpattern/-/blob/main/ch05/05-02/README.md) 
 
-[6. 복잡한것을 단순하게](https://gitlab.com/k3144/designpattern/-/blob/main/ch6/README.md)
+[6. 복잡한것을 단순하게](https://gitlab.com/k3144/designpattern/-/blob/main/ch06/README.md)
 
-  - Facade, Mediator 
+  - [Facade - 클라이언트에 오픈된 인터페이스는 하나](https://gitlab.com/k3144/designpattern/-/blob/main/ch6/06-01/README.md)
+  
+  - [Mediator - 여러 객체가 서로 소통하지 않고 중앙의 하나의 객체와만 소통하게](https://gitlab.com/k3144/designpattern/-/blob/main/ch6/06-02/README.md)
 
-[7. 구조안을 돌아다니는 패턴들](https://gitlab.com/k3144/designpattern/-/blob/main/ch7/README.md)
+[7. 구조안을 돌아다니는 패턴들](https://gitlab.com/k3144/designpattern/-/blob/main/ch07/README.md)
 
-  - Iterator, Visitor
+  - Iterator
 
-[8. 접근 제어하는 방법](https://gitlab.com/k3144/designpattern/-/blob/main/ch8/README.md)
+  - Visitor
+
+[8. 접근 제어하는 방법](https://gitlab.com/k3144/designpattern/-/blob/main/ch08/README.md)
 
   - Proxy
   
-[9. 호환](https://gitlab.com/k3144/designpattern/-/blob/main/ch9/README.md)
+[9. 호환](https://gitlab.com/k3144/designpattern/-/blob/main/ch09/README.md)
 
   - Adapter
 
