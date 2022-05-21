@@ -34,6 +34,7 @@ public class AICar {
 	}
 }
 ```
+
 ManualCar.java
 ```
 public class ManualCar {
@@ -56,6 +57,7 @@ public class ManualCar {
 	}
 }
 ```
+
 HybridCar.java
 ```
 public class HybridCar {
@@ -78,6 +80,7 @@ public class HybridCar {
 	}
 }
 ```
+
 CarTest.java
 ```
 public class CarTest {
@@ -113,6 +116,7 @@ public class CarTest {
 1. 추상 클래스 만들기
 
     - 공통적으로 사용하는 메서드는 구현하고, 하위 클래스마다 다르게 구현되어야 하는것은 추상 메서드로 선언
+
 Car.java
 ```
 public abstract class Car {
@@ -131,6 +135,7 @@ public abstract class Car {
 	
 }
 ```
+
 2. Car를 상속받아 각 차 클래스 구현하기
 
 AICar.java
@@ -154,6 +159,7 @@ public class AICar extends Car{
 	}
 }
 ```
+
 ManualCar.java
 ```
 public class ManualCar extends Car{
@@ -170,6 +176,7 @@ public class ManualCar extends Car{
 	}
 }
 ```
+
 HybridCar.java
 ```
 public class HybridCar extends Car{
@@ -186,6 +193,7 @@ public class HybridCar extends Car{
 	}
 }
 ```
+
 3. 전체 시나리오를 구현한 템플릿 메서드 만들기
 ```
 final public void run() {
@@ -216,6 +224,7 @@ public class CarTest {
 	}
 }
 ```
+
 5. Hook 메서드 추가하기
 
 CarTest.java
@@ -230,9 +239,6 @@ final public void run() {
 	washCar();  //hook method
 }
 ```
-
-
-
 
 
 
