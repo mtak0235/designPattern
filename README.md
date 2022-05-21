@@ -32,9 +32,9 @@
 
 [6. 복잡한것을 단순하게](https://gitlab.com/k3144/designpattern/-/blob/main/ch06/README.md)
 
-  - [Facade - 클라이언트에 오픈된 인터페이스는 하나](https://gitlab.com/k3144/designpattern/-/blob/main/ch6/06-01/README.md)
+  - [Facade - 클라이언트에 오픈된 인터페이스는 하나](https://gitlab.com/k3144/designpattern/-/blob/main/ch06/06-01/README.md)
   
-  - [Mediator - 여러 객체가 서로 소통하지 않고 중앙의 하나의 객체와만 소통하게](https://gitlab.com/k3144/designpattern/-/blob/main/ch6/06-02/README.md)
+  - [Mediator - 여러 객체가 서로 소통하지 않고 중앙의 하나의 객체와만 소통하게](https://gitlab.com/k3144/designpattern/-/blob/main/ch06/06-02/README.md)
 
 [7. 구조안을 돌아다니는 패턴들](https://gitlab.com/k3144/designpattern/-/blob/main/ch07/README.md)
 
