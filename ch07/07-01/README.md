@@ -141,3 +141,105 @@ public class Main {
 
 }
 ```
+
+
+## Iterator 기능에 추가 기능이 필요할 때
+
+- 역순으로 순회하는 기능을 구현하자 ReverseIterator
+
+- 다양한 Iterator를 만드는 Factory 구현
+
+- Factory.java
+```
+public abstract class Factory {
+
+	public final Iterator create(Aggregate list, int type) {
+		Iterator p = createProduct(list, type);
+		return p;
+	}
+	
+	protected abstract Iterator createProduct(Aggregate list, int type);
+}
+```
+
+- IteratorFactory.java
+```
+public class IteratorFactory extends Factory{
+
+	private static IteratorFactory ifactory = new IteratorFactory();
+	private IteratorFactory(){}
+	
+	public static IteratorFactory getInstance(){
+		
+		if(ifactory == null)
+			ifactory = new IteratorFactory();
+		return ifactory;
+	}
+
+	@Override
+	protected Iterator createProduct(Aggregate list, int type) {
+		if(type == Constant.FORWARD)
+			return new BookShelfIterator(list);
+		else if(type == Constant.REVERSE)
+			return new ReverseIterator(list);
+		else 
+			return null;
+	}
+}
+```
+
+- ReverseIterator.java
+```
+public class ReverseIterator implements Iterator{
+
+	private BookShelf bookShelf;
+    private int index;
+
+    ReverseIterator(Aggregate bookShelf) {
+        this.bookShelf = (BookShelf)bookShelf;
+        this.index = bookShelf.getLength() -1;
+    }
+	@Override
+	public boolean hasNext() {
+		if (index >= 0 ) {
+            return true;
+        } 
+		else 
+            return false;
+	}
+
+	@Override
+	public Object next() {
+		if (index >= 0 ) {
+			 Book book = bookShelf.getBookAt(index);
+		     index--;
+		     return book;
+		}
+		else 
+			return null;
+	}
+
+}
+```
+
+- Constant.java
+```
+public class Constant {
+	public static final int FORWARD = 0;
+	public static final int REVERSE = 1;
+
+}
+```
+
+- Aggregate.java
+```
+public interface Aggregate {
+	 public abstract Iterator iterator(int type);
+	 public int getLength();
+}
+```
+
+
+
+
+
