@@ -16,8 +16,9 @@
 
 - 합성( composition )으로 구현하기
 
-![adaptercomp](./img/adaptercomp.PNG)
+![adaptercomp](./img/adptercomp.PNG)
 
 
 - 상속 ( inheritance )로 구현하기
+
 ![adapterinherit](./img/adapterinherit.PNG)
