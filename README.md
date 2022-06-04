@@ -50,7 +50,7 @@
 
   - [Adapter](https://gitlab.com/k3144/designpattern/-/blob/main/ch09/09-01/README.md) 
 
-[10. 프로토콜을 객체로](https://gitlab.com/k3144/designpattern/-/blob/main/ch10/README.md)
+[10. 명령을 객체로](https://gitlab.com/k3144/designpattern/-/blob/main/ch10/README.md)
 
   - [Command](https://gitlab.com/k3144/designpattern/-/blob/main/ch10/10-01/README.md) 
 
