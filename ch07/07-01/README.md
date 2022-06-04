@@ -13,3 +13,6 @@
     어떤 클래스가 하나 이상의 역할을 제공하게 되면 변경이 되는 이유도 하나 이상이 된다.
     클래스가 변경되는 이유는 하나뿐이어야 한다.
 
+- java.util.Iterator
+
+![iterator](./img/iterator.PNG)
