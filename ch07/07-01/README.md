@@ -19,3 +19,125 @@
 
 ![iterator](./img/iterator.PNG)
 
+## 예제
+
+- Iterator.java
+```
+public interface Iterator {
+	public abstract boolean hasNext();
+    public abstract Object next();
+}
+```
+
+- Aggregate.java
+```
+public interface Aggregate {
+	 public abstract Iterator iterator();
+	 public int getLength();
+}
+```
+
+- Book.java
+```
+public class Book {
+
+	private String name;
+	public Book(String name) {
+		this.name = name;
+	} 
+	
+	public String getName() {
+		return name;
+	}
+}
+```
+
+- BookShelf.java
+```
+public class BookShelf implements Aggregate{
+
+	private Book[] books;
+	private int last = 0;
+	
+	public BookShelf(int maxSize) {
+		books = new Book[maxSize];
+	}
+	
+	public Book getBookAt(int index) {
+		return books[index];
+	}
+	
+	public void appendBook(Book book) {
+		this.books[last] = book;
+		last++;
+	}
+	
+	@Override
+	public Iterator iterator() {
+		return new BookShelfIterator(this);
+	}
+
+	@Override
+	public int getLength() {
+		return last;
+	}
+
+}
+```
+
+- BookShelfIterator.java
+```
+public class BookShelfIterator implements Iterator{
+
+	private BookShelf bookShelf;
+	private int index;
+	
+	public BookShelfIterator(Aggregate bookShelf) {
+		this.bookShelf = (BookShelf)bookShelf;
+		this.index = 0;
+	}
+	
+	@Override
+	public boolean hasNext() {
+		if(index < bookShelf.getLength()) {
+			return true;
+		}
+		else return false;
+	}
+
+	@Override
+	public Object next() {
+		if(index < bookShelf.getLength()) {
+			Book book =  bookShelf.getBookAt(index);
+			index++;
+			return book;
+		}
+		return null;
+	}
+
+}
+```
+
+- Main.java
+```
+public class Main {
+
+	public static void main(String[] args) {
+		BookShelf bookShelf = new BookShelf(4);
+        bookShelf.appendBook(new Book("Around the World in 80 Days"));
+        bookShelf.appendBook(new Book("Bible"));
+        bookShelf.appendBook(new Book("Cinderella"));
+        bookShelf.appendBook(new Book("Daddy-Long-Legs"));
+        
+        Iterator it = bookShelf.iterator();
+        while (it.hasNext()) {
+            Book book = (Book)it.next();
+            System.out.println("" + book.getName());
+        }
+        
+        System.out.println("============");
+   
+	}
+
+}
+```
