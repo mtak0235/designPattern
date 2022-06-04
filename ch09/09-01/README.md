@@ -30,3 +30,46 @@ Adapter를 이용하여 Adapter에서 Item을 관리하고 그리는 방식을 �
 - 상속 ( inheritance )로 구현하기
 
 ![adapterinherit](./img/adapterinherit.PNG)
+
+
+## 예제 
+- 인터페이스 ( Print.java )
+
+```
+public interface Print {
+    public abstract void printWeak();
+    public abstract void printStrong();
+}
+```
+
+- 클라이언트 코드 (Main.java)
+
+```
+public class Main {
+    public static void main(String[] args) {
+        Print p = new PrintBanner("Hello");
+        p.printWeak(); 
+        p.printStrong();
+    }
+}
+```
+
+
+
+
+
+- 인터페이스 (Adaptee)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
