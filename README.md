@@ -32,13 +32,13 @@
 
 [6. 복잡한것을 단순하게](https://gitlab.com/k3144/designpattern/-/blob/main/ch06/README.md)
 
-  - [Facade - 클라이언트에 오픈된 인터페이스는 하나](https://gitlab.com/k3144/designpattern/-/blob/main/ch06/06-01/README.md)
+  - [Facade - 클라이언트가 사용하기 편하게 하나의 인터페이스를 제공하자](https://gitlab.com/k3144/designpattern/-/blob/main/ch06/06-01/README.md)
   
   - [Mediator - 여러 객체가 서로 소통하지 않고 중앙의 하나의 객체와만 소통하게](https://gitlab.com/k3144/designpattern/-/blob/main/ch06/06-02/README.md)
 
 [7. 구조안을 돌아다니는 패턴들](https://gitlab.com/k3144/designpattern/-/blob/main/ch07/README.md)
 
-  - [Iterator](https://gitlab.com/k3144/designpattern/-/blob/main/ch07/07-01/README.md) 
+  - [Iterator - 객체를 순회하는 방법에 대한 동일한 인터페이스를 제공하자](https://gitlab.com/k3144/designpattern/-/blob/main/ch07/07-01/README.md) 
 
   - [Visitor](https://gitlab.com/k3144/designpattern/-/blob/main/ch07/07-02/README.md)  
 
@@ -48,11 +48,11 @@
   
 [9. 호환](https://gitlab.com/k3144/designpattern/-/blob/main/ch09/README.md)
 
-  - [Adapter](https://gitlab.com/k3144/designpattern/-/blob/main/ch09/09-01/README.md) 
+  - [Adapter - 클라이언트가 원하는 인터페이스로 변경해주기](https://gitlab.com/k3144/designpattern/-/blob/main/ch09/09-01/README.md) 
 
 [10. 명령을 객체로](https://gitlab.com/k3144/designpattern/-/blob/main/ch10/README.md)
 
-  - [Command](https://gitlab.com/k3144/designpattern/-/blob/main/ch10/10-01/README.md) 
+  - [Command - 다양하게 수행되어야 하는 일들을 일관된 인터페이스로 캡슐화하여 처리](https://gitlab.com/k3144/designpattern/-/blob/main/ch10/10-01/README.md) 
 
 
 ## Reference
