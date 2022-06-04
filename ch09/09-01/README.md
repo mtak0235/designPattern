@@ -54,22 +54,38 @@ public class Main {
 }
 ```
 
+- Adaptee (Banner.java)
 
+```
+public class Banner {
+    private String string;
+    public Banner(String string) {
+        this.string = string;
+    }
+    public void showWithParen() {
+        System.out.println("(" + string + ")");
+    }
+    public void showWithAster() {
+        System.out.println("*" + string + "*");
+    }
+}
+```
 
+- Adapter (PrintBanner.java)
 
+```
+public class PrintBanner implements Print {
+    private Banner banner;  //Composition
 
-- 인터페이스 (Adaptee)
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public PrintBanner(String string) {
+        this.banner = new Banner(string);
+    }
+    public void printWeak() {
+        banner.showWithParen();
+    }
+    public void printStrong() {
+        banner.showWithAster();
+    }
+}
+```
 
