@@ -32,7 +32,8 @@ Adapter를 이용하여 Adapter에서 Item을 관리하고 그리는 방식을 �
 ![adapterinherit](./img/adapterinherit.PNG)
 
 
-## 예제 
+## 예제 - 1 
+
 - 인터페이스 ( Print.java )
 
 ```
@@ -88,4 +89,35 @@ public class PrintBanner implements Print {
     }
 }
 ```
+## 예제 -2 Iterator 와 Enumeration 
 
+- Collection을 접근하는데 사용하는 인터페이스
+
+- Enumeration이 이미 사용되고 있다면 Iterator 인터페이스의 메서드로 바꾸자 
+
+- EnumerationIterator 어댑터 만들기
+
+```
+public class EnumerationIterator implements Iterator<Object>{
+
+	Enumeration<?> enumeration;
+	
+	EnumerationIterator(Enumeration<?> enumeration){
+		this.enumeration = enumeration;
+	}
+	
+	@Override
+	public boolean hasNext() {
+		return enumeration.hasMoreElements();
+	}
+
+	@Override
+	public Object next() {
+		return enumeration.nextElement();
+	}
+
+	public void remove() {
+		throw new UnsupportedOperationException();
+	}
+}
+```
