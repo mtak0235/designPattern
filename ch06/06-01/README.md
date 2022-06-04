@@ -19,7 +19,27 @@
      여러 클래스가 복잡하게 얽히지 않고 의존관계를 적게 해야 수정을 할때 side effect나 연관 수정이 발생하지 
      않음
 
-> 객체 자체
+- -  객체 자체
 
+- -  메소드의 매개 변수로 전달된 객체
+
+- -  메소드를 생성하거나 인스턴스를 만들 객체
+
+- -  객체에 속하는 구성 요소
+
+안 좋은 예
+```
+public float getTemp(){
+     Thermometer thermometer = station.getThermometer();
+     return thermometer.getTemperature();
+}
+```
+
+좋은 예
+```
+public float getTemp(){
+     return station.getTemperature();
+}
+```
 
 
