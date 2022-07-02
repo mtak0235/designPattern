@@ -44,7 +44,7 @@
 
 [8. 접근 제어하는 방법](https://gitlab.com/k3144/designpattern/-/blob/main/ch08/README.md)
 
-  - [Proxy](https://gitlab.com/k3144/designpattern/-/blob/main/ch08/08-01/README.md)
+  - [Proxy - 실제 객체에 대한 접근을 대신하거나 제어하는 기능](https://gitlab.com/k3144/designpattern/-/blob/main/ch08/08-01/README.md)
   
 [9. 호환](https://gitlab.com/k3144/designpattern/-/blob/main/ch09/README.md)
 
