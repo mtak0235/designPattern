@@ -198,5 +198,5 @@ public class StudentTest {
 	}
 }
 ```
-
+![strategy](./img/strategy3.PNG)
 
