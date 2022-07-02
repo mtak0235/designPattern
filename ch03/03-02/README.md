@@ -32,3 +32,216 @@
 
 ![bridge2](./img/bridge2.PNG)
 
+
+List.java
+```
+public class List<T>{ 
+
+	AbstractList<T> impl;
+	
+	public List(AbstractList<T> list) {
+		impl = list;
+	}
+	
+	public  void add(T obj) {
+		impl.addElement(obj);
+	}
+	public  T get(int i) {
+		return impl.getElement(i);
+	}
+	public  T remove(int i) {
+		return impl.deleteElement(i);
+	}
+	public  int getSize() {
+		return impl.getElementSize();
+	}
+
+}
+```
+
+Queue.java
+```
+import impl.AbstractList;
+
+public class Queue<T> extends List<T> {
+
+	public Queue(AbstractList<T> list) {
+		super(list);
+		System.out.println("Queue를 구현합니다.");
+	}
+	
+	public void enQueue(T obj) {
+		impl.addElement(obj);
+	}
+	
+	public T deQueue() {
+		return impl.deleteElement(0);
+	}
+	
+}
+```
+
+Stack.java
+```
+public  class Stack<T> extends List<T> {
+	
+	public Stack(AbstractList<T> list) {
+		super(list);
+		System.out.println("Stack을 구현합니다.");
+	}
+	
+	public void push(T obj) {
+		impl.insertElement(obj, 0);
+	}
+	
+	public T pop() {
+		return impl.deleteElement(0);
+	}
+
+}
+```
+
+AbstractList.java
+```
+public interface AbstractList<T> {
+
+	public void addElement(T obj);
+	public T deleteElement(int i);
+	public int insertElement(T obj, int i);
+	public T getElement(int i);
+	public int getElementSize();
+}
+```
+
+ArrayImpl.java
+```
+public class ArrayImpl<T> implements AbstractList<T> {
+
+	ArrayList<T> array;
+	public ArrayImpl(){
+		array = new ArrayList<T>();
+		System.out.println("Array로 구현합니다.");
+		
+	}
+	
+	@Override
+	public void addElement(T obj) {
+		array.add(obj);
+	}
+
+	@Override
+	public T deleteElement(int i) {
+		
+		return array.remove(i);
+	}
+
+	@Override
+	public int insertElement(T obj, int i) {
+		array.add(i, obj);
+		return i;
+	}
+
+	@Override
+	public int getElementSize() {
+		return array.size();
+	}
+
+	@Override
+	public T getElement(int i) {
+		
+		return array.get(i);
+	}
+}
+```
+
+LinkedListImpl.java
+```
+public class LinkedListImpl<T> implements AbstractList<T>{
+
+	LinkedList<T> linkedList;
+	
+	public LinkedListImpl() {
+		linkedList = new LinkedList<T>();
+		System.out.println("LinkedList로 구현합니다.");
+	}
+	
+	@Override
+	public void addElement(T obj) {
+		linkedList.add(obj);
+		
+	}
+
+	@Override
+	public T deleteElement(int i) {
+		return linkedList.remove(i);
+	}
+
+	@Override
+	public int insertElement(T obj, int i) {
+		linkedList.add(i, obj);
+		return i;
+	}
+
+	@Override
+	public int getElementSize() {
+		return linkedList.size();
+	}
+
+	@Override
+	public T getElement(int i) {
+		return linkedList.get(i);
+	}
+
+}
+```
+
+BridgeTest.java
+```
+public class BridgeTest {
+
+	public static void main(String[] args) {
+
+		Queue<String> arrayQueue = new Queue<String>(new ArrayImpl<String>());
+		
+		arrayQueue.enQueue("aaa");
+		arrayQueue.enQueue("bbb");
+		arrayQueue.enQueue("ccc");
+		
+		System.out.println(arrayQueue.deQueue());
+		System.out.println(arrayQueue.deQueue());
+		System.out.println(arrayQueue.deQueue());
+		System.out.println("=========================");
+		
+		Queue<String> linkedQueue = new Queue<String>(new LinkedListImpl<String>());
+		linkedQueue.enQueue("aaa");
+		linkedQueue.enQueue("bbb");
+		linkedQueue.enQueue("ccc");
+		
+		System.out.println(linkedQueue.deQueue());
+		System.out.println(linkedQueue.deQueue());
+		System.out.println(linkedQueue.deQueue());
+		System.out.println("=========================");
+		
+		Stack<String> arrayStack = new Stack<String>(new ArrayImpl<String>());
+		arrayStack.push("aaa");
+		arrayStack.push("bbb");
+		arrayStack.push("ccc");
+		
+		System.out.println(arrayStack.pop());
+		System.out.println(arrayStack.pop());
+		System.out.println(arrayStack.pop());
+		System.out.println("=========================");
+		
+		Stack<String> linkedStack = new Stack<String>(new LinkedListImpl<String>());
+		linkedStack.push("aaa");
+		linkedStack.push("bbb");
+		linkedStack.push("ccc");
+		
+		System.out.println(linkedStack.pop());
+		System.out.println(linkedStack.pop());
+		System.out.println(linkedStack.pop());
+		System.out.println("=========================");
+	}
+
+}
+```
