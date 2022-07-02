@@ -44,4 +44,159 @@
    | Kim | 수학 | 100 | 100 |  |
    | Lee | 국어 | 55 | 55 | 100
    
+Subject.java
+```
+public class Subject {
+	
+	private String name;
+	private int scorePoint;
+	private boolean majorCode;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getScorePoint() {
+		return scorePoint;
+	}
+	public void setScorePoint(int scorePoint) {
+		this.scorePoint = scorePoint;
+	}
+	public boolean isMajorCode() {
+		return majorCode;
+	}
+	public void setMajorCode(boolean majorCode) {
+		this.majorCode = majorCode;
+	}
+}
+```
+
+Student.java
+```
+public class Student {
+	
+	int studentID;
+	String studentName;
+	ArrayList<Subject> subjectList;
+	
+	public static final int BASIC = 0;
+	public static final int MAJOR = 1;
+	
+	public Student(int studentID, String studentName){
+		this.studentID = studentID;
+		this.studentName = studentName;
+		
+		subjectList = new ArrayList<Subject>();
+	}
+	
+	public void addSubject(String name, int score, boolean majorCode){
+		Subject subject = new Subject();
+		
+		subject.setName(name);
+		subject.setScorePoint(score);
+		subject.setMajorCode(majorCode);
+		subjectList.add(subject);
+	}
+	
+	public void showGradeInfo() {
+		
+		GradeEvaluation[] gradeEvaluation = {new BasicEvaluation(), new MajorEvaluation()};
+		
+		for(Subject s : subjectList){
+		
+			String grade;
+			int score = s.getScorePoint();
+			if (s.isMajorCode() == true) {
+				grade = gradeEvaluation[MAJOR].getGrade(score);
+			}
+			else {
+				grade = gradeEvaluation[NOT_MAJOR].getGrade(score);
+			}
+			System.out.println("학생 " + studentName + "의 " + s.getName() + " 과목 성적은 " + 
+			        s.getScorePoint() + "점 이고, 학점은 " + grade +" 입니다.");
+		
+		}
+	}
+}
+```
+
+GradeEvaluation.java
+```
+public interface GradeEvaluation {
+	public String getGrade(int point);
+}
+```
+
+BasicEvaluation.java
+```
+public  class BasicEvaluation implements GradeEvaluation{
+
+	@Override
+	public String getGrade(int point) {
+		String grade;
+		
+		if(point >=90 && point <=100)
+			grade = "A";
+		else if(point >=80 && point <=89)
+			grade = "B";
+		else if(point >=70 && point <=79)
+			grade = "C";
+		else if(point >=55 && point <=69)
+			grade = "D";
+		else
+			grade = "F";
+		return grade;
+	}
+}
+```
+
+MajorEvaluation.java
+```
+public class MajorEvaluation implements GradeEvaluation{
+
+	@Override
+	public String getGrade(int point) {
+		String grade;
+		if(point >=95 && point <=100)
+			grade = "S";
+		else if(point >=90 && point <=94)
+			grade = new String("A");
+		else if(point >=80 && point <=89)
+			grade = "B";
+		else if(point >=70 && point <=79)
+			grade = "C";
+		else if(point >=60 && point <=69)
+			grade = "D";
+		else
+			grade = "F";
+		return grade;
+	}
+}
+```
+StudentTest.java
+```
+public class StudentTest {
+
+	public static void main(String[] args) {
+		Student studentLee = new Student(1001, "Lee");
+		
+		studentLee.addSubject("국어", 100, false);
+		studentLee.addSubject("수학", 100, true);
+		
+		
+		Student studentKim = new Student(1002, "Kim");
+		
+		studentKim.addSubject("국어", 55, true);
+		studentKim.addSubject("수학", 55, false);
+		studentKim.addSubject("영어", 100, false);
+		
+		studentLee.showGradeInfo();
+		System.out.println("======================================");
+		studentKim.showGradeInfo();
+	}
+}
+```
+
 
