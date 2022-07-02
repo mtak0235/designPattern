@@ -41,12 +41,220 @@
 
 
 - PasteCommand
+
 ![paste](./img/pastecommand.PNG)
 
 - Macro Command
+
 ![macro](./img/macrocommand.PNG)
 
 ## 프로그램 예
 
-- 리모컨이나 메뉴등 명령을 발생하는 곳(invoker)이 있고 이 여러 메뉴들에 각각 다른 대상(receiver)에 대한 수행을 요구한다고 하면 이를 어떻게 처리할 것인가?
+- 리모컨의 버튼들은 (invoker) 각각 다른 대상(receiver)에 대한 수행을 요구한다고 하면 이를 어떻게 처리할 것인가?
+
+0번 버튼 눌리면 (ON)  : 불을 켠다
+0번 버튼 올라오면 (OFF)  : 불을 끈다
+1번 버튼 눌리면 (ON)  : 에어켠이나 히터를 켠다
+1번 버튼 올라오면 (OFF)  : 에어켠이나 히터를 끈다
+2번 버튼 눌리면 (ON)  : 음악을 켠다
+2번 버튼 올라오면 (OFF)  : 음악을 끈다
+3번 버튼 눌리면 (ON)  : 문을 연다
+3번 버튼 올라오면 (OFF)  : 문들 닫는다
+
+Light.java
+```
+public class Light {
+	String location = "";
+
+	public Light(String location) {
+		this.location = location;
+	}
+
+	public void on() {
+		System.out.println(location + " light is on");
+	}
+
+	public void off() {
+		System.out.println(location + " light is off");
+	}
+}
+```
+GarageDoor.java
+```
+public class GarageDoor {
+	String location;
+
+	public GarageDoor(String location) {
+		this.location = location;
+	}
+
+	public void up() {
+		System.out.println(location + " garage Door is Up");
+	}
+
+	public void down() {
+		System.out.println(location + " garage Door is Down");
+	}
+
+	public void stop() {
+		System.out.println(location + " garage Door is Stopped");
+	}
+
+	public void lightOn() {
+		System.out.println(location + " garage light is on");
+	}
+
+	public void lightOff() {
+		System.out.println(location + " garage light is off");
+	}
+}
+```
+
+Comman.java
+```
+public interface Command {
+	public void execute();
+}
+```
+
+LightOnCommand.java
+```
+public class LightOnCommand implements Command {
+	Light light;
+
+	public LightOnCommand(Light light) {
+		this.light = light;
+	}
+
+	public void execute() {
+		light.on();
+	}
+}
+```
+
+LightOffCommand.java
+```
+public class LightOffCommand implements Command {
+	Light light;
+ 
+	public LightOffCommand(Light light) {
+		this.light = light;
+	}
+ 
+	public void execute() {
+		light.off();
+	}
+}
+```
+
+NoComman.java
+```
+public class NoCommand implements Command {
+	public void execute() { }
+}
+```
+
+RemoteControl.java
+```
+public class RemoteControl {
+	Command[] onCommands;
+	Command[] offCommands;
+ 
+	public RemoteControl() {
+		onCommands = new Command[7];
+		offCommands = new Command[7];
+ 
+		Command noCommand = new NoCommand();
+		for (int i = 0; i < 7; i++) {
+			onCommands[i] = noCommand;
+			offCommands[i] = noCommand;
+		}
+	}
+  
+	public void setCommand(int slot, Command onCommand, Command offCommand) {
+		onCommands[slot] = onCommand;
+		offCommands[slot] = offCommand;
+	}
+ 
+	public void onButtonWasPushed(int slot) {
+		onCommands[slot].execute();
+	}
+ 
+	public void offButtonWasPushed(int slot) {
+		offCommands[slot].execute();
+	}
+  
+	public String toString() {
+		StringBuffer stringBuff = new StringBuffer();
+		stringBuff.append("\n------ Remote Control -------\n");
+		for (int i = 0; i < onCommands.length; i++) {
+			stringBuff.append("[slot " + i + "] " + onCommands[i].getClass().getName()
+				+ "    " + offCommands[i].getClass().getName() + "\n");
+		}
+		return stringBuff.toString();
+	}
+}
+```
+
+RemoteLoader.java
+```
+public class RemoteLoader {
+ 
+	public static void main(String[] args) {
+		RemoteControl remoteControl = new RemoteControl();
+ 
+		Light livingRoomLight = new Light("Living Room");
+		CeilingFan ceilingFan= new CeilingFan("Living Room");
+		GarageDoor garageDoor = new GarageDoor("Garage");
+		Stereo stereo = new Stereo("Living Room");
+  
+		LightOnCommand livingRoomLightOn = 
+				new LightOnCommand(livingRoomLight);
+		LightOffCommand livingRoomLightOff = 
+				new LightOffCommand(livingRoomLight);
+		
+		CeilingFanOnCommand ceilingFanOn = 
+				new CeilingFanOnCommand(ceilingFan);
+		CeilingFanOffCommand ceilingFanOff = 
+				new CeilingFanOffCommand(ceilingFan);
+ 
+		GarageDoorUpCommand garageDoorUp =
+				new GarageDoorUpCommand(garageDoor);
+		GarageDoorDownCommand garageDoorDown =
+				new GarageDoorDownCommand(garageDoor);
+ 
+		StereoOnWithCDCommand stereoOnWithCD =
+				new StereoOnWithCDCommand(stereo);
+		StereoOffCommand  stereoOff =
+				new StereoOffCommand(stereo);
+ 
+		remoteControl.setCommand(0, livingRoomLightOn, livingRoomLightOff);
+		remoteControl.setCommand(1, ceilingFanOn, ceilingFanOff);
+		remoteControl.setCommand(2, stereoOnWithCD, stereoOff);
+		remoteControl.setCommand(3, garageDoorUp, garageDoorDown);
+  
+		System.out.println(remoteControl);
+ 
+		remoteControl.onButtonWasPushed(0);
+		remoteControl.offButtonWasPushed(0);
+		remoteControl.onButtonWasPushed(1);
+		remoteControl.offButtonWasPushed(1);
+		remoteControl.onButtonWasPushed(2);
+		remoteControl.offButtonWasPushed(2);
+		remoteControl.onButtonWasPushed(3);
+		remoteControl.offButtonWasPushed(3);
+		remoteControl.onButtonWasPushed(4);
+		remoteControl.offButtonWasPushed(4);
+	}
+}
+```
+
+
+
+
+
+
+
+
+
 
