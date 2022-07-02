@@ -112,7 +112,7 @@ public class Student {
 				grade = gradeEvaluation[MAJOR].getGrade(score);
 			}
 			else {
-				grade = gradeEvaluation[NOT_MAJOR].getGrade(score);
+				grade = gradeEvaluation[BASIC].getGrade(score);
 			}
 			System.out.println("학생 " + studentName + "의 " + s.getName() + " 과목 성적은 " + 
 			        s.getScorePoint() + "점 이고, 학점은 " + grade +" 입니다.");
