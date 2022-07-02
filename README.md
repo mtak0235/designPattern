@@ -54,6 +54,7 @@
 
   - [Command - 다양하게 수행되어야 하는 일들을 일관된 인터페이스로 캡슐화하여 처리](https://gitlab.com/k3144/designpattern/-/blob/main/ch10/10-01/README.md) 
 
+[11. 디자인 패턴과 함께하는 슬기로운 생활](https://gitlab.com/k3144/designpattern/-/blob/main/ch11/README.md) 
 
 ## Reference
 
