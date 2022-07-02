@@ -1,7 +1,7 @@
 # Mediator
 
 
-![mediator1](./img/mediator1.PNG)
+![mediator1](./img/mediator.PNG)
 
 
 ![mediator2](./img/mediator2.PNG)
